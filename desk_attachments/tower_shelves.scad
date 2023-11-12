@@ -1,4 +1,4 @@
-$fn = 720;
+$fn = 180;
 
 pipe_side_length = 25.5;
 pipe_diameter = 16.2;
@@ -42,9 +42,10 @@ module pipe_grabber(width) {
 }
 
 bin_width = 200;
-bin_depth = 150;
+bin_depth = 75;
 bin_height = desk_to_crosspipe_height + pipe_side_length;
-bin_wall_thickness = 5;
+bin_wall_thickness = 2;
+bin_floor_thickness = 0.4;
 module bin() {
     difference() {
         cube([
@@ -55,11 +56,11 @@ module bin() {
         translate([
             bin_wall_thickness,
             bin_wall_thickness,
-            bin_wall_thickness
+            bin_floor_thickness
         ]) cube([
             bin_width - 2*bin_wall_thickness,
             bin_depth - 2*bin_wall_thickness,
-            bin_height - bin_wall_thickness
+            bin_height - bin_floor_thickness
         ]);
     }
 }
@@ -91,11 +92,11 @@ module main() {
             pipe_diameter,
             pg_height
         ]) pg();
-        translate([
-            bin_width,
-            bin_depth - pg_width - pipe_diameter,
-            pg_height
-        ]) pg();
+        // translate([
+        //     bin_width,
+        //     bin_depth - pg_width - pipe_diameter,
+        //     pg_height
+        // ]) pg();
     }
 
     bin();
