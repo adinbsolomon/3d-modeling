@@ -40,3 +40,10 @@ function list_sum(list, start=0, end=-1) =
         list[first] + list_sum(
             list, first+1, last
         );
+
+// This is for taking a cross section of a list of lists. For example:
+// list_cross_section([[1,2], [3,4], [5,6]], 1) will return [2, 3, 4].
+function list_cross_section(list, index) =
+    [
+        for (i = [0:len(list)]) list[i][index]
+    ];
