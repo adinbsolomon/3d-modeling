@@ -1,6 +1,9 @@
 
 use <comparison_utils.scad>
 
+function is_list_of_len(list, length) = 
+    is_list(list) && len(list) == length;
+
 function list_sublist(list, start, end) = 
     assert(is_list(list))
     assert(is_num(start))
