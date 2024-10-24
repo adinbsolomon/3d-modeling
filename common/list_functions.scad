@@ -20,7 +20,7 @@ function list_sublist(list, start, end) =
             for (i = [start : 1 : end-1]) list[i]
         ];
 
-
+// end is exclusive
 function list_sum(list, start=0, end=-1) =
     assert(is_list(list))
     assert(is_num(start))
