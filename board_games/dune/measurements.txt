@@ -1,0 +1,40 @@
+
+Box 11 inch sq x 79 mm
+
+Rule Books Thickness: 5.6 mm
+
+Boards
+- Base Game / Uprising: 10 inch sq x 10 mm (folded)
+- Choam: 117 mm x 7.25 inch x 5 mm (folded)
+- Ix: 7.3 inch sq x 2.5 mm
+- Immortality: 18cm x 10 inch x 2.5 mm
+- Uprising 6-Player Commander: 5.5 inch x 5.7 inch x 2.5 mm
+
+TODO: Uprising starting deck
+TODO: Measure uprising misc and hagal more precisely
+Cards
+- Sleeves: 66.3 x 99.1 mm
+- Base Game Imperium: 42 mm
+- Ix Imperium: 22 mm
+- Immortality Imperium: 20 mm
+- Liasons and SMF: 16 mm
+- Immortality Tleilax: 13 mm
+- Starting Deck (Base, Ix, Immortality): 33 mm
+- House Hagal: 15 mm (not sleeved)
+- Uprising Imperium: 48 mm
+- PTW and SMF: 12 mm
+- Uprising Misc: 30 mm
+
+Small Cards
+- Card Dimensions: 44 x 68 mm
+- Base Game Intrigues: 44 mm
+- Base Game Conflicts: 8 mm
+- Uprising Intrigues: 18 mm
+- Uprising Conflicts: 8 mm
+
+Tech Tiles: 67 x 45 x 30 mm
+
+Contracts: 54 x 34 x 64 mm
+
+TODO: stack thickness
+Leader Cards: 146 x 102
