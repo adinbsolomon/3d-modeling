@@ -1,5 +1,5 @@
 
-use <../bin.scad>
+use <common/bin.scad>
 use <teeth_care_bin.scad>
 
 // 1 inch = 25.4 mm

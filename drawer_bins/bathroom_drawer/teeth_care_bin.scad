@@ -1,6 +1,6 @@
 
-use <../bin.scad>
-use <../../common/triangle.scad>
+use <common/bin.scad>
+use <common/triangle.scad>
 
 // 1 inch = 25.4 mm
 

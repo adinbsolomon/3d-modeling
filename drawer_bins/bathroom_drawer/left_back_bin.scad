@@ -1,5 +1,5 @@
 
-use <../polygon_bin.scad>
+use <common/polygon_bin.scad>
 
 // 1 inch = 25.4 mm
 
