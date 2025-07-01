@@ -1,6 +1,10 @@
 # 3d-modeling
 My 3D modeling projects using OpenSCAD
 
+# OPENSCADPATH
+
+Many of these files assume access by various files to `common/*.scad` files, so follow the instructions in the [User Manual](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Libraries) for use of libraries - choose the best method for your use case.
+
 # Ideas for OpenSCAD Style
 
 - All library functions / modules are in their own file with no others.
