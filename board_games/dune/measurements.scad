@@ -67,5 +67,3 @@ _m_scard_width = 0; // TODO
 _m_scard_intrigue_stack_thickness = 0; // TODO
 _m_scard_conflict_stack_thickness = 0; // TODO
 _m_scard_navigation_stack_thickness = 0; // TODO
-
-
