@@ -1,5 +1,5 @@
 
-include <bins.scad>
+include <unit_bin.scad>
 
 module all_bins() {
     unit_bin(2,1);

@@ -1,5 +1,5 @@
 
-use <../bin.scad>
+use <common/bin.scad>
 
 // Drawer Measurements (frontal perspective)
 drawer_width = 345;
