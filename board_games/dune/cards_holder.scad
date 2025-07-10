@@ -1,10 +1,10 @@
 
 include <measurements.scad>
 
-use <../../drawer_bins/bin.scad>
-use <../../common/triangle.scad>
-use <../../common/prism.scad>
-use <../../common/list_functions.scad>
+use <common/bin.scad>
+use <common/triangle.scad>
+use <common/prism.scad>
+use <common/list_functions.scad>
 
 // Box and Card Dimensions
 box_side_length = 254;
