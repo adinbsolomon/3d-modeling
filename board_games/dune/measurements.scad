@@ -14,7 +14,7 @@ include <../../common/units.scad>
 // - Expansion boxes are half-height (needs to be double-checked)
 _m_box_length = 11 * inch; // 11 inch = 279.4 mm
 _m_box_height = 79;
-_m_box_wall_thickness = 1; // TODO
+_m_box_wall_thickness = 2;
 
 // Rulebook Measurements
 // - I don't think optimizing for rulebook thickness and placement matters
@@ -51,22 +51,17 @@ _m_leader_width = 102;
 _m_leader_stack_thickness = 13;
 
 // Tile Measurements
-// - Counts for different versions are based on whether the version's mechanics are required
-_m_tile_thickness = 0; // TOOD
-_m_tile_tech_length = 45; // TODO
-_m_tile_tech_width = 30; // TODO
-_m_tile_tech_stack_thickness = 0; // TODO
-_m_tile_tech_ix_count = 0; // TODO
-_m_tile_tech_bl_count = 0; // TODO
-_m_tile_contract_length = 54;
-_m_tile_contract_width = 34;
+// - Tile orientation is from bird's eye view (length is vertical, width is horizontal)
+_m_tile_thickness = 2.1;
+_m_tile_tech_length = 44;
+_m_tile_tech_width = 67;
+_m_tile_tech_stack_thickness = 61;
+_m_tile_contract_length = 34;
+_m_tile_contract_width = 54;
 _m_tile_contract_stack_thickness = 80;
-_m_tile_contract_up_count = 0; // TODO
-_m_tile_contract_ix_count = 0; // TODO
-_m_tile_contract_im_count = 0; // TODO
-_m_tile_sardukar_length = 46;
-_m_tile_sardukar_width = 46;
-_m_tile_sardukar_width_2 = 0; // TODO
+_m_tile_sardukar_length = 44;
+_m_tile_sardukar_width = 45;
+_m_tile_sardukar_width_2 = 37;
 _m_tile_sardukar_stack_thickness = 30;
 
 // Card Measurements
@@ -75,32 +70,29 @@ _m_tile_sardukar_stack_thickness = 30;
 // - Static cards are Arrakis Liason, Spice Must Flow, Foldspace, and Prepare the Way
 _m_card_length = 99.1;
 _m_card_width = 66.3;
-_m_card_thickness = 0; // TODO
-_m_card_starter_di_count = 0; // TODO
-_m_card_starter_ix_count = 0; // TODO
-_m_card_starter_im_count = 0; // TODO
-_m_card_starter_up_count = 0; // TODO
-_m_card_static_di_count = 0; // TODO
-_m_card_static_up_count = 0; // TODO
-_m_card_imperium_di_count = 0; // TODO
-_m_card_imperium_ix_count = 0; // TODO
-_m_card_imperium_im_count = 0; // TODO
-_m_card_imperium_up_count = 0; // TODO
-_m_card_imperium_bl_count = 0; // TODO
-_m_card_tleilax_count = 0; // TODO
-_m_card_up_6p_count = 0; // TODO
-_m_card_length_unsleeved = 0; // TODO
-_m_card_width_unsleeved = 0; // TODO
-_m_card_thickness_unsleeved = 0; // TODO
-_m_card_hagal_count = 0; // TODO - no version categories needed because use is uncommon
-_m_card_rival_count = 0; // TODO - no version categories needed because use is uncommon
+_m_card_starter_stack_thickness = 55;
+_m_card_static_stack_thickness = 25;
+_m_card_imperium_stack_thickness = 143;
+_m_card_tleilax_stack_thickness = 12.5;
+_m_card_6p_stack_thickness = 12;
+_m_card_bot_stack_thickness = 36;
 
 // Small Card Measurements
-_m_scard_length = 0; // TODO
-_m_scard_width = 0; // TODO
-_m_scard_intrigue_stack_thickness = 0; // TODO
-_m_scard_conflict_stack_thickness = 0; // TODO
-_m_scard_navigation_stack_thickness = 0; // TODO
+_m_scard_length = 67;
+_m_scard_width = 44;
+_m_scard_intrigue_stack_thickness = 46;
+_m_scard_conflict_stack_thickness = 15;
+_m_scard_special_stack_thickness = 8;
 
 // Game Piece Measurements
 // - TODO - all of this :)
+_m_piece_board_space_cover_length = 51.5;
+_m_piece_board_space_cover_width = 84.5;
+_m_piece_board_space_cover_thickness = 2.1;
+_m_piece_alliance_token_diameter = 35;
+_m_piece_alliance_token_thickness = 2.1;
+_m_piece_first_player_token_diameter = 43;
+_m_piece_first_player_token_thickness = 2.1;
+_m_piece_mentat_height = 25;
+_m_piece_mentat_width = 11.5;
+_m_piece_mentat_thickness = 10;
