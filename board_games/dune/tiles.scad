@@ -5,12 +5,6 @@ use <common/triangle.scad>
 
 include <measurements.scad>
 
-// TODO - get actual measurements from the tiles
-_m_tile_sardukar_length = 46;
-_m_tile_sardukar_width = 46;
-_m_tile_sardukar_width_2 = 36;
-_m_tile_sardukar_stack_thickness = 100;
-
 // The proportion argument in each of these is useful for splitting the stack
 
 module _tiles_tech(proportion = 1) {
@@ -99,9 +93,10 @@ module _tiles_sardukar_bin() {
   difference() {
     union() {
       cards_bin(
-        card_height = _m_tile_sardukar_width,
-        card_width = _m_tile_sardukar_length,
-        bin_length = _m_tile_sardukar_stack_thickness + 2 * _cards_bin_default_wall_thickness
+        card_height = _m_tile_sardukar_length,
+        card_width = _m_tile_sardukar_width,
+        bin_length = _m_tile_sardukar_stack_thickness + 2 * _cards_bin_default_wall_thickness,
+        cards_laying_down = false
       );
       translate([
         _cards_bin_default_wall_thickness + _m_tile_sardukar_stack_thickness,
@@ -111,26 +106,31 @@ module _tiles_sardukar_bin() {
         _tiles_sardukar_bin_wing();
       translate([
         _cards_bin_default_wall_thickness,
-        _m_tile_sardukar_width + wing_offset - _cards_bin_default_wall_thickness,
+        // _m_tile_sardukar_width + wing_offset - _cards_bin_default_wall_thickness,
+        _cards_bin_default_wall_thickness
+          + wing_offset * 2
+          + _m_tile_sardukar_width_2
+          + _cards_bin_default_wiggle_room,
         _cards_bin_default_floor_thickness
       ])
         rotate([0,0, 180])
           _tiles_sardukar_bin_wing();
     }
     translate([
-      _m_tile_sardukar_stack_thickness/2 + _cards_bin_default_wall_thickness,
-      _m_tile_sardukar_width / 2 + _cards_bin_default_wall_thickness,
-      _cards_bin_default_floor_thickness / 2
+      0.5 * _m_tile_sardukar_stack_thickness + _cards_bin_default_wall_thickness,
+      0.5 * _m_tile_sardukar_width
+        + _cards_bin_default_wall_thickness
+        + 0.5 * _cards_bin_default_wiggle_room,
+      0.5 * _cards_bin_default_floor_thickness
     ])
+    rotate([0,0,90])
       linear_extrude(_cards_bin_default_floor_thickness / 2)
         text(
           "Sardukar",
-          size = _m_tile_sardukar_width * 0.15, // TODO
+          size = 3.5,
           font = "Dune Rise",
           valign = "center",
           halign = "center"
         );
   }
 }
-
-_tiles_sardukar_bin();
