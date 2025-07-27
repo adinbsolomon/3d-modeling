@@ -68,7 +68,6 @@ module cards_bin(
       ]
     );
   }
-
   
   module _cards_bin_tilted_divider() {
     assert(
@@ -135,38 +134,72 @@ module cards_bin(
 
 _card_stack_bin_default_wiggle_margin = 1;
 
-// module card_stack_bin(
-//   card_height,
-//   card_width,
-//   stack_height,
-//   bin_wall_thickness = _cards_bin_default_wall_thickness,
-//   bin_floor_thickness = _cards_bin_default_floor_thickness,
-//   wiggle_margin = _card_stack_bin_default_wiggle_margin
-// ) {
-//   bin_length = card_width + 2*wiggle_margin + 2*bin_wall_thickness;
-//   bin_width = card_height + 2*wiggle_margin + 2*bin_wall_thickness;
-//   bin_height = stack_height + bin_floor_thickness;
+module dual_card_stack_bin(
+  card_length,
+  card_width,
+  stack_height,
+  bin_wall_thickness = _cards_bin_default_wall_thickness,
+  bin_floor_thickness = _cards_bin_default_floor_thickness,
+  wiggle_margin = _card_stack_bin_default_wiggle_margin,
+  generate_lifter_instead_of_bins = false
+) {
+  bin_length = card_width + 2*wiggle_margin + 2*bin_wall_thickness;
+  bin_width = card_length + 2*wiggle_margin + 2*bin_wall_thickness;
+  bin_height = stack_height + bin_floor_thickness;
 
-//   module _card_stack_bin_main_bin() {
-//     echo("Card stack bin dimensions: length=", bin_length, ", width=", bin_width, ", height=", bin_height);
-//     bin(
-//       bin_length,
-//       bin_width,
-//       bin_height,
-//       bin_wall_thickness,
-//       bin_floor_thickness
-//     );
-//   }
+  module _card_stack_bin() {
+    echo("Card stack bin dimensions: length=", bin_length, ", width=", bin_width, ", height=", bin_height);
+    bin(
+      bin_length,
+      bin_width,
+      bin_height,
+      bin_wall_thickness,
+      bin_floor_thickness
+    );
+  }
 
-//   module _card_stack_bin_main() {
-//     difference() {
-//       _card_stack_bin_main_bin();
-//       translate([0.5*bin_length, 0.5*bin_wall_thickness, 0.5*bin_floor_thickness])
-//         cube([
-//           bin_length - 1.5
-//         ])
-//     }
-//   }
+  card_lifter_arm_length = 0.5 * card_width + wiggle_margin;
+  card_lifter_arm_width = 0.1 * card_length;
 
-//   _card_stack_bin_main();
-// }
+  // Idea for card lifter: have a small spool spring in the handle that keeps fishing line taught instead of floor panel
+  module _card_lifter() {
+    cube([
+      card_lifter_arm_length * 2
+        + 2 * bin_wall_thickness,
+      card_lifter_arm_width,
+      bin_floor_thickness
+    ]);
+    translate([
+      card_lifter_arm_length,
+      0,
+      0
+    ])
+      cube([
+        2 * bin_wall_thickness,
+        card_lifter_arm_width,
+        bin_height
+      ]);
+  }
+
+  module _card_stack_bin_main() {
+    difference() {
+      union() {
+        _card_stack_bin();
+        translate([bin_length, 0, 0])
+          _card_stack_bin();
+      }
+      translate([
+        0.5 * bin_length,
+        0.5 * bin_width + bin_wall_thickness,
+        0
+      ])
+        _card_lifter();
+    }
+  }
+
+  if (generate_lifter_instead_of_bins) {
+    _card_lifter();
+  } else {
+    _card_stack_bin_main();
+  }
+}
