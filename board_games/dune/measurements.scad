@@ -68,7 +68,7 @@ _m_tile_sardukar_stack_thickness = 30;
 // - These are measured with dragonsheild sleeves on
 // - Counts for different versions are based on release
 // - Static cards are Arrakis Liason, Spice Must Flow, Foldspace, and Prepare the Way
-_m_card_length = 99.1;
+_m_card_length = 91.3;
 _m_card_width = 66.3;
 _m_card_starter_stack_thickness = 55;
 _m_card_static_stack_thickness = 25;
