@@ -33,7 +33,7 @@ module cards_bin(
   bin_length,
   bin_wall_thickness = _cards_bin_default_wall_thickness,
   bin_floor_thickness = _cards_bin_default_floor_thickness,
-  card_laying_down = true,
+  cards_laying_down = true,
   wiggle_room = _cards_bin_default_wiggle_room,
   use_finger_access_negative = true,
   finger_access_diameter = _cards_bin_default_finger_access_negative_diameter,
@@ -46,8 +46,8 @@ module cards_bin(
 ) {
 
   // Derived parameters
-  card_vertical = card_laying_down ? card_width : card_height;
-  card_horizontal = card_laying_down ? card_height : card_width;
+  card_vertical = cards_laying_down ? card_width : card_height;
+  card_horizontal = cards_laying_down ? card_height : card_width;
   card_shadow = is_undef(tilt_angle) ? undef : cos(tilt_angle) * card_horizontal;
   bin_height = (is_undef(tilt_angle) ? 1 : sin(tilt_angle)) * card_vertical + bin_floor_thickness;
   bin_width = card_horizontal + 2 * bin_wall_thickness + wiggle_room;
@@ -132,3 +132,41 @@ module cards_bin(
 
   _cards_bin_main();
 }
+
+_card_stack_bin_default_wiggle_margin = 1;
+
+// module card_stack_bin(
+//   card_height,
+//   card_width,
+//   stack_height,
+//   bin_wall_thickness = _cards_bin_default_wall_thickness,
+//   bin_floor_thickness = _cards_bin_default_floor_thickness,
+//   wiggle_margin = _card_stack_bin_default_wiggle_margin
+// ) {
+//   bin_length = card_width + 2*wiggle_margin + 2*bin_wall_thickness;
+//   bin_width = card_height + 2*wiggle_margin + 2*bin_wall_thickness;
+//   bin_height = stack_height + bin_floor_thickness;
+
+//   module _card_stack_bin_main_bin() {
+//     echo("Card stack bin dimensions: length=", bin_length, ", width=", bin_width, ", height=", bin_height);
+//     bin(
+//       bin_length,
+//       bin_width,
+//       bin_height,
+//       bin_wall_thickness,
+//       bin_floor_thickness
+//     );
+//   }
+
+//   module _card_stack_bin_main() {
+//     difference() {
+//       _card_stack_bin_main_bin();
+//       translate([0.5*bin_length, 0.5*bin_wall_thickness, 0.5*bin_floor_thickness])
+//         cube([
+//           bin_length - 1.5
+//         ])
+//     }
+//   }
+
+//   _card_stack_bin_main();
+// }
