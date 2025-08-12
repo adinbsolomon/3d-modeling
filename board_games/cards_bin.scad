@@ -24,8 +24,8 @@ use <common/list_functions.scad>
 // Default parameters
 _cards_bin_default_wall_thickness = 1;
 _cards_bin_default_floor_thickness = 0.4;
-_cards_bin_default_wiggle_room = 3;
-_cards_bin_default_finger_access_negative_diameter = 20;
+_cards_bin_default_wiggle_room = 2;
+_cards_bin_default_finger_access_negative_diameter = 25;
 
 module cards_bin(
   card_height,
