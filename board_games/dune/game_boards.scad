@@ -4,8 +4,8 @@ include <measurements.scad>
 module _board_main() {
   cube(
     [
-      _m_box_length,
-      _m_box_length,
+      _m_board_main_length,
+      _m_board_main_length,
       _m_board_main_thickness,
     ]
   );
@@ -15,12 +15,12 @@ module _board_uprising() {
   _board_main();
 }
 
-module _board_uprising_6p(both = false) {
+module _board_uprising_6p(both = false, stacked = false) {
   cube(
     [
-      _m_board_uprising_6p_length * (both ? 2 : 1),
+      _m_board_uprising_6p_length * (both && !stacked ? 2 : 1),
       _m_board_uprising_6p_width,
-      _m_board_thickness,
+      _m_board_thickness * (both && stacked ? 2 : 1),
     ]
   );
 }
@@ -124,5 +124,62 @@ module _board_configuration_001() {
     _board_ix_shipping();
 }
 
-// _board_configuration_001();
-_board_main();
+module _board_configuration_002() {
+  // Tier 1
+  _board_main();
+  translate(
+    [
+      0,
+      0,
+      _m_board_main_thickness,
+    ]
+  )
+    _board_uprising();
+  // Tier 2
+  translate(
+    [
+      0,
+      0,
+      _m_board_main_thickness + _m_board_uprising_thickness,
+    ]
+  )
+    _board_ix_tech();
+  translate(
+    [
+      0,
+      _m_board_ix_tech_width,
+      _m_board_main_thickness + _m_board_uprising_thickness,
+    ]
+  )
+    _board_bl();
+  // Tier 3
+  translate(
+    [
+      0,
+      0,
+      _m_board_main_thickness + _m_board_uprising_thickness + _m_board_thickness,
+    ]
+  )
+    mirror([-1, 1, 0])
+      _board_im();
+  // Tier 4
+  translate(
+    [
+      0,
+      0,
+      _m_board_main_thickness + _m_board_uprising_thickness + 2 * _m_board_thickness,
+    ]
+  )
+    mirror([-1, 1, 0])
+      _board_ix_shipping();
+  translate(
+    [
+      0,
+      _m_board_ix_shipping_length,
+      _m_board_main_thickness + _m_board_uprising_thickness + 2 * _m_board_thickness,
+    ]
+  )
+    _board_uprising_6p(both=true, stacked=true);
+}
+
+_board_configuration_002();
