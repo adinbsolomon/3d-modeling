@@ -12,7 +12,7 @@ include <../../common/units.scad>
 // - Box is square
 // - Both base game boxes are the same
 // - Expansion boxes are half-height (needs to be double-checked)
-_m_box_length = 11 * inch; // 11 inch = 279.4 mm
+_m_box_length = 11 * inch; // 11 inch ~= 280 mm
 _m_box_height = 79;
 _m_box_wall_thickness = 2;
 
@@ -31,18 +31,20 @@ _m_rulebook_thickness = 3;
 //   - up = Dune Imperium Uprising
 //   - bl = Bloodlines
 _m_board_thickness = 2.5; // all boards have this thickness
-_m_board_main_thickness = 4 * _m_board_thickness; // folded twice
-_m_board_uprising_thickness = 4 * _m_board_thickness; // folded twice
-_m_board_uprising_6p_length = 5.5 * inch;
-_m_board_uprising_6p_width = 5.7 * inch;
-_m_board_ix_shipping_thickness = 2 * _m_board_thickness; // folded once
+_m_board_main_thickness = 4 * _m_board_thickness; // 10 mm (folded twice)
+_m_board_main_length = _m_box_length - 37;
+_m_board_uprising_thickness = 4 * _m_board_thickness; // 10 mm (folded twice)
+_m_board_uprising_length = _m_board_main_length;
+_m_board_uprising_6p_length = 5.5 * inch; // ~140 mm
+_m_board_uprising_6p_width = 5.7 * inch; // ~145 mm
+_m_board_ix_shipping_thickness = 2 * _m_board_thickness; // 5 mm (folded once)
 _m_board_ix_shipping_length = 117;
-_m_board_ix_shipping_width = 7.25 * inch;
-_m_board_ix_tech_length = 7.3 * inch;
-_m_board_ix_tech_width = 7.3 * inch;
+_m_board_ix_shipping_width = 7.25 * inch; // ~185 mm
+_m_board_ix_tech_length = 7.3 * inch; // ~186 mm
+_m_board_ix_tech_width = 7.3 * inch; // ~186 mm
 _m_board_im_length = 10 * inch;
 _m_board_im_width = 180;
-_m_board_bl_length = 51 + 5.5 * inch; // ~190
+_m_board_bl_length = 51 + 5.5 * inch; // ~191 mm
 _m_board_bl_width = 87;
 
 // Leader Card Measurements
@@ -65,7 +67,7 @@ _m_tile_sardukar_width_2 = 37;
 _m_tile_sardukar_stack_thickness = 30;
 
 // Card Measurements
-// - These are measured with dragonsheild sleeves on
+// - These are measured with dragonshield sleeves on
 // - Counts for different versions are based on release
 // - Static cards are Arrakis Liason, Spice Must Flow, Foldspace, and Prepare the Way
 _m_card_length = 91.3;
