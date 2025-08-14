@@ -23,19 +23,19 @@ function list_sublist(list, start, end) =
 function list_sum(list, start = 0, end = -1) =
   assert(is_list(list))
   assert(is_num(start))
-  assert(number_is_between(start, 0, len(list)))
+  assert(number_is_between(start, 0, len(list), inclusive_higher=true))
   assert(is_num(end))
   assert(
     end == -1 || number_is_between(
       end, start, len(list),
-      inclusive_lower=false,
+      inclusive_lower=true,
       inclusive_higher=true
-    )
+    ), str(end, ", ", start, ", ", len(list))
   )
   let (
     first = start,
     last = end == -1 ? len(list) : end
-  ) first == last - 1 ?
+  ) first == last ?
     0
   : list[first] + list_sum(
     list, first + 1, last
