@@ -16,11 +16,3 @@ function number_is_between(
         higher = inclusive_higher ? higher_bound+1 : higher_bound
     )
         lower < number && number < higher;
-
-echo(
-    number_is_between(
-        0,
-        0,
-        5
-    )
-);
