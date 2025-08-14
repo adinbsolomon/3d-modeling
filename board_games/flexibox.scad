@@ -24,7 +24,7 @@ module flexibox(
   for (i = [0:len(wall_widths) - 1]) {
     translate(
       [
-        list_sum(wall_widths, end=i + 1) + i * distance_between_walls,
+        list_sum(wall_widths, end=i) + i * distance_between_walls,
         0,
         layer_height * base_layer_count,
       ]
