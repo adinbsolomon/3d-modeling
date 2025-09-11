@@ -98,3 +98,25 @@ _m_piece_first_player_token_thickness = 2.1;
 _m_piece_mentat_height = 25;
 _m_piece_mentat_width = 11.5;
 _m_piece_mentat_thickness = 10;
+
+// Player Piece Measurements
+_m_player_agent_thickness = 10;
+_m_player_agent_width_foot = 11;
+_m_player_agent_width_arm = 14;
+_m_player_agent_height = 25;
+_m_player_spy_diameter = 8.5;
+_m_player_spy_height = 12;
+_m_player_tracker_diameter = 15;
+_m_player_tracker_height = 10;
+_m_player_dreadnought_height = 19;
+_m_player_dreadnought_width_bottom = 13.5;
+_m_player_dreadnought_width_middle = 10;
+_m_player_troop_length = 8;
+_m_player_combat_tracker_length = 16;
+_m_player_flag_length = 22.5;
+_m_player_flag_inner_length = 17; 
+_m_player_flag_width = 18.5;
+_m_player_hooks_length = 27.5;
+_m_player_hooks_width = 19;
+_m_player_atomics_length = 37.5;
+_m_player_atomics_width = 34.5;
