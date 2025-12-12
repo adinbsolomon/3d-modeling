@@ -11,7 +11,7 @@ module layer_timeseries(layer_heights) {
   layer_count = len(layer_heights);
   total_height = list_sum(layer_heights);
   timestep = 0.01; // TODO: change this based on the number of layers and echo details.
-  layer_time = floor($t / timestep);
+  layer_time = min(floor($t / timestep), layer_count);
   translate([0, 0, -1 * list_sum(layer_heights, 0, layer_time)])
     children(0);
   for (layer_num = [0:layer_count - 1]) {
