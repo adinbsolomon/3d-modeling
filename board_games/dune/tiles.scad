@@ -39,7 +39,7 @@ module _tiles_sardukar(proportion = 1) {
 }
 
 _tiles_bin_stack_thickness_padding = floor(_m_tile_thickness);
-
+_tiles_bin_length_additions = 2 * _cards_bin_default_wall_thickness + _tiles_bin_stack_thickness_padding;
 module _tiles_bin(
   tile_length,
   tile_width,
@@ -47,31 +47,36 @@ module _tiles_bin(
   tile_text,
   tile_text_size
 ) {
+  echo("Creating tiles bin for ", tile_text, "with dimenstions: ", [
+    tile_length,
+    tile_width,
+    tile_stack_thickness
+  ]);
   difference() {
     cards_bin(
       card_height = tile_length,
       card_width = tile_width,
-      bin_length = tile_stack_thickness + 2 * _cards_bin_default_wall_thickness + _tiles_bin_stack_thickness_padding,
+      bin_length = tile_stack_thickness + _tiles_bin_length_additions,
       cards_laying_down = false
     );
-    translate([
-      0.5 * tile_stack_thickness
-        + _cards_bin_default_wall_thickness
-        + 0.5 * _tiles_bin_stack_thickness_padding,
-      0.5 * tile_width
-        + _cards_bin_default_wall_thickness
-        + 0.5 * _cards_bin_default_wiggle_room,
-      0
-    ])
-      rotate([0,0,90])
-        linear_extrude(_cards_bin_default_floor_thickness)
-          text(
-            tile_text,
-            size = tile_text_size,
-            font = "Dune Rise",
-            valign = "center",
-            halign = "center"
-          );
+    // translate([
+    //   0.5 * tile_stack_thickness
+    //     + _cards_bin_default_wall_thickness
+    //     + 0.5 * _tiles_bin_stack_thickness_padding,
+    //   0.5 * tile_width
+    //     + _cards_bin_default_wall_thickness
+    //     + 0.5 * _cards_bin_default_wiggle_room,
+    //   0
+    // ])
+    //   rotate([0,0,90])
+    //     linear_extrude(_cards_bin_default_floor_thickness)
+    //       text(
+    //         tile_text,
+    //         size = tile_text_size,
+    //         font = "Dune Rise",
+    //         valign = "center",
+    //         halign = "center"
+    //       );
   }
 }
 
