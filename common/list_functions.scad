@@ -47,3 +47,7 @@ function list_cross_section(list, index) =
   [
     for (i = [0:len(list)]) list[i][index],
   ];
+
+function join_list_of_lists(list_of_lists) =
+  len(list_of_lists) == 1 ? list_of_lists[len(list_of_lists) - 1] :
+  concat(list_of_lists[0], join_list_of_lists(list_sublist(list_of_lists, 1, len(list_of_lists))));
