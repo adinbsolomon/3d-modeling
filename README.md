@@ -22,3 +22,5 @@ Many of these files assume access to `common/*.scad` files, so follow the instru
 **FreeCAD "Live" Updates**: I wrote a simple watcher script to run from inside the FreeCAD GUI with `exec(open(".../main.py").read())` You'll need to provide a filepath pointing to the script you want to watch and once every second the watcher script will check when the file was last modified and rerun it when an update is detected.
 - Pretty janky
 - Assuming this will function like the OpenSCAD editor, which is something I'm interested in, I'll probably need to create a runner class from which my FreeCAD model scripts will inherit and before creating the model each time it would destroy everything...
+
+I might be able to control the [FreeCADGui module's window](https://wiki.freecad.org/Embedding_FreeCAD) and underlying interpreter through the FreeCADGui and FreeCAD modules. It will require some exploration, but my idea is to have a script watcher in a background thread while the GUI occupies the main thread (for some reason QT won't accept a background thread).
