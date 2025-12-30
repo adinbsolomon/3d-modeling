@@ -1,0 +1,25 @@
+
+# NOT USED - Taken from https://www.reddit.com/r/FreeCAD/comments/1mknq3d/freecad_vscode_how_to_get_vs_code_to_see_freecads/
+
+import os, time, threading, traceback
+
+WATCHED_SCRIPT = "~/Documents/projects/3d-modeling/freecad/testing.py"
+
+def geometry_push_worker():
+    print("🔁 [GeometryPush] Watching:", WATCHED_SCRIPT)
+    while True:
+        try:
+            if os.path.exists(WATCHED_SCRIPT):
+                with open(WATCHED_SCRIPT, 'r') as f:
+                    code = f.read()
+                print("🚀 [GeometryPush] Executing remote_script.py...")
+                exec(code, globals())
+                os.remove(WATCHED_SCRIPT)
+        except Exception:
+            print("❌ [GeometryPush] Error:\n", traceback.format_exc())
+        time.sleep(1)
+
+# Run watcher in a separate thread so it doesn't block FreeCAD GUI
+thread = threading.Thread(target=geometry_push_worker, daemon=True)
+thread.start()
+print("✅ [GeometryPush] Running in background.")

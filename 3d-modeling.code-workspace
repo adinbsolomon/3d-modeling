@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "/home/adin/Documents/applications/FreeCAD/squashfs-root/usr/bin/freecadcmd",
+    "python.analysis.extraPaths": [
+      "/home/adin/Documents/applications/FreeCAD/squashfs-root/usr/lib/python3.11",
+      "/home/adin/Documents/applications/FreeCAD/squashfs-root/usr/lib/python3.11/lib-dynaload"
+    ],
+    "python.analysis.useLibraryCodeForTypes": true,
+    "python.analysis.diagnosticMode": "workspace",
+    "materialkv.pythonFile": "main.py"
+  }
+}
