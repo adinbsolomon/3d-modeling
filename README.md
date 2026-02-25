@@ -17,7 +17,18 @@ Many of these files assume access to `common/*.scad` files, so follow the instru
 
 ## FreeCAD
 
-**FreeCAD Python Interpreter**: This setup is pretty janky - I followed [this tutorial](https://www.reddit.com/r/FreeCAD/comments/1mknq3d/freecad_vscode_how_to_get_vs_code_to_see_freecads/) a bit to connect the FreeCAD Python interpreter up to VSCode, but I noticed that installing packages with `pip` doesn't work. I realized that an executable `python` in the same directory as the tutorial's `freecadcmd` can be used like a normal python executable with `.../python -m install ...` and installed packages are accessible from the interpreter. It seems that those installed packages are in `.../usr/lib/python3.11/site-packages/`.
+TODO - figure out how let VSCode's Python extensions read package information about FreeCAD modules so autocomplete isn't terrible
+
+### Getting Started
+
+1. Download and install FreeCAD by following [this]() tutorial;
+2. Use `freecad/freecad.sh` to start FreeCAD (after changing the paths based on your installation); 
+3. In the Python console, run `import script_watcher` and `script_watcher.watch_script()`.
+4. The given file will be watched for updates and executed when triggered. You should also be able to import modules in this repo given the arguments in (2).
+
+### Environment Development
+
+**FreeCAD Python Interpreter**: This setup is pretty janky - I followed [this tutorial](https://www.reddit.com/r/FreeCAD/comments/1mknq3d/freecad_vscode_how_to_get_vs_code_to_see_freecads/) a bit to connect the FreeCAD Python interpreter up to VSCode, but I noticed that installing packages with `pip` doesn't work. I realized that an executable `python` in the same directory as the tutorial's `freecadcmd` can be used like a normal python executable with `.../python -m pip install ...` and installed packages are accessible from the interpreter. It seems that those installed packages are in `.../usr/lib/python3.11/site-packages/`.
 
 **FreeCAD "Live" Updates**: I wrote a simple watcher script to run from inside the FreeCAD GUI with `exec(open(".../main.py").read())` You'll need to provide a filepath pointing to the script you want to watch and once every second the watcher script will check when the file was last modified and rerun it when an update is detected.
 - Pretty janky

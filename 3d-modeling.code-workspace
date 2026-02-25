@@ -5,13 +5,35 @@
     }
   ],
   "settings": {
-    "python.defaultInterpreterPath": "/home/adin/Documents/applications/FreeCAD/squashfs-root/usr/bin/freecadcmd",
+    "python.defaultInterpreterPath": "",
     "python.analysis.extraPaths": [
+      "/home/adin/Documents/applications/FreeCAD/squashfs-root/usr/lib",
+      "/home/adin/Documents/applications/FreeCAD/squashfs-root/usr/lib/python3.1",
+      "/home/adin/Documents/applications/FreeCAD/squashfs-root/usr/lib/python3.1/site-packages",
       "/home/adin/Documents/applications/FreeCAD/squashfs-root/usr/lib/python3.11",
-      "/home/adin/Documents/applications/FreeCAD/squashfs-root/usr/lib/python3.11/lib-dynaload"
+      "/home/adin/Documents/applications/FreeCAD/squashfs-root/usr/lib/python3.11/site-packages",
     ],
     "python.analysis.useLibraryCodeForTypes": true,
     "python.analysis.diagnosticMode": "workspace",
-    "materialkv.pythonFile": "main.py"
+    "materialkv.pythonFile": "main.py",
+    "python.autoComplete.extraPaths": [
+      "/home/adin/Documents/applications/FreeCAD/squashfs-root/usr/lib",
+      "/home/adin/Documents/applications/FreeCAD/squashfs-root/usr/lib/python3.1",
+      "/home/adin/Documents/applications/FreeCAD/squashfs-root/usr/lib/python3.1/site-packages",
+      "/home/adin/Documents/applications/FreeCAD/squashfs-root/usr/lib/python3.11",
+      "/home/adin/Documents/applications/FreeCAD/squashfs-root/usr/lib/python3.11/site-packages",
+    ],
+    "python.analysis.autoImportCompletions": true,
+    "autopep8.interpreter": [
+      "/home/adin/Documents/applications/FreeCAD/squashfs-root/usr/bin/python"
+    ],
+    "python.terminal.executeInFileDir": true,
+    "python-envs.pythonProjects": [
+      {
+        "path": "",
+        "envManager": "ms-python.python:system",
+        "packageManager": "ms-python.python:pip"
+      }
+    ]
   }
 }

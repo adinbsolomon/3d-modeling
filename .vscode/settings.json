@@ -5,5 +5,10 @@
       "envManager": "ms-python.python:system",
       "packageManager": "ms-python.python:pip"
     }
-  ]
+  ],
+  "python.defaultInterpreterPath": "",
+  "python.autoComplete.extraPaths": [],
+  "python.terminal.launchArgs": [],
+  "python.terminal.focusAfterLaunch": false,
+  "python.testing.unittestEnabled": false,
 }
