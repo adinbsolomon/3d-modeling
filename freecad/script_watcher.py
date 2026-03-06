@@ -5,6 +5,7 @@
 # TODO - save the model before the running the script, then delete all parts from the model (maybe save two drafts). Maybe just have this as a helper util or something, or have a script runner class?
 # TODO - maybe we can reload modules by crawling through the module tree and reloading those with __file__ in this repo, or maybe we can augment the import statement to proactively add new modules to a list if they meet this condition
 
+import datetime
 import os
 import time
 import traceback
@@ -56,6 +57,8 @@ class ScriptWatcher:
         while not self.termination_signal():
             new_file_time = self.get_script_modification_time()
             if self.filepath_modification_time != new_file_time:
+                print(
+                    f"Script update detected at {datetime.datetime.fromtimestamp(new_file_time)}")
                 self.try_to_execute_script()
                 self.filepath_modification_time = new_file_time
             self.wait_refresh_time()
