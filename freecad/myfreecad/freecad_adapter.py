@@ -7,10 +7,15 @@ from myfreecad.freecad_types import Solid, Wire
 
 
 def clear_parts():
+    camera_view = None
     doc = freecad.app.activeDocument()
     if doc:
+        camera_view = freecad.gui.activeView().getCamera()
         freecad.app.closeDocument(doc.Name)
-    return freecad.app.newDocument()
+    new_doc = freecad.app.newDocument()
+    if camera_view is not None:
+        freecad.gui.activeView().setCamera(camera_view)
+    return new_doc
 
 
 def show_part(part):
